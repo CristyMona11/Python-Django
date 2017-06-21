@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+  </head>
+  <body>
+    <p>First Name: {{request.session.first_name}}</p>
+    <p>Last Name: {{request.session.last_name}}</p>
+    <p>Email: {{request.session.html_email}}</p>
+    <a href="{% url 'user:edit' %}">Edit Profile</a><br><br>
+    <a href="{% url 'playlist:home' %}">Back to Home</a>
+  </body>
+</html>

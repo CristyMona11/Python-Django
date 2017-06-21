@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Followers</title>
+  </head>
+  <body>
+    <a href="{% url 'playlist:home' %}">Back to Home</a>
+    <h1><u>Followers</u></h1>
+    <table width="450" height="400" style="border: 1px solid black">
+      <tr>
+        <th>Following</th>
+      </tr>
+      <tr>
+        {% for f in following %}
+        <td>{{f.first_name}} {{f.last_name}} <a href="{% url 'user:unfollow' follower_id=request.session.user_id followee_id=f.id %}">Unfollow</a></td>
+        {% endfor %}
+      </tr>
+    </table>
+    <table width="450" height="400" style="border: 1px solid black">
+      <tr>
+        <th>People You Don't Follow</th>
+      </tr>
+      <tr>
+      {% for n in not_following %}
+      <td>{{n.first_name}} {{n.last_name}} <a href="{% url 'user:follow' follower_id=request.session.user_id followee_id=n.id %}">Follow</a></td>
+      {% endfor %}
+      </tr>
+    </table>
+  </body>
+</html>

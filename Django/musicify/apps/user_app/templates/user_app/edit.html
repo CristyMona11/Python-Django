@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Profile</title>
+  </head>
+  <body>
+    <form action="{% url 'user:profile' %}" method="POST">
+      {% csrf_token %}
+      <p>Email: {{request.session.html_email}}</p>
+      <label for="first_name"></label>
+      <p>Current First Name:{{request.session.first_name}}</p>
+      Change to:<input type="text" name="first_name" value=""><br>
+      <label for="last_name"></label>
+      <p>Current Last Name:{{request.session.last_name}}</p>
+      Change to:<input type="text" name="last_name" value=""><br><br>
+      <label for="password"></label>
+      Current Password:<input type="password" name="html_password" value=""><br><br>
+      Change Password to:<input type="password" name="html_password" value=""><br><br>
+      Confirm Password:<input type="password" name="html_confirmg" value=""><br><br>
+      <input type="submit" name="Edits" value="Save Changes"><br>
+    </form>
+      <a href="{% url 'playlist:home' %}"><button>Back to Home</button></a>
+  </body>
+</html>

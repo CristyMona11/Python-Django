@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ten Minute Test</title>
+  </head>
+  <body>
+    <h1>YOU DID IT!!!!!</h1>
+    <a href="/tamarind">Costa!</a>
+    <a href="/thai">Thailand!</a>
+    <a href="/barce">Spain!</a>
+
+    {%if session.user_name%}
+    <a href="/logout">Logout</a>
+    {%else%}
+    <a href="/login">Login</a>
+    {% endif%}
+    <br>
+      {{session.user_name}}
+    <br>
+    {%for location in session.trip_history%}
+    <br>
+        {{location}}
+    <br>    
+    {%endfor%}
+
+  </body>
+</html>

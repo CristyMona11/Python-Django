@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Wish List</title>
+  </head>
+  <body>
+    {% if request.session.user_username %}
+  <br>
+  <a href="{% url 'login:logout' %}">Logout</a>
+  <h3>Hello, {{request.session.user_username}}!</h3>
+  {% else %}
+  <a href="{% url 'login:home' %}">Login</a>
+  {% endif %}
+  <h4>Your Wish List:</h4>
+  <table width="450" height="400" style="border: 1px solid black">
+    <tr>
+      <th>Item Name</th>
+      <th>Added By</th>
+      <th>Date Added</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+    <td>Gift</td>
+    <td>User</td>
+    <td>Date</td>
+    <td>Action</td>
+    </tr>
+  </table>
+  <h4>Other Users' Wish List:</h4>
+  <table width="450" height="400" style="border: 1px solid black">
+    <tr>
+      <th>Item Name</th>
+      <th>Added By</th>
+      <th>Date Added</th>
+      <th>Action</th>
+    </tr>
+    {% for i in items %}
+    <tr>
+    <td><a href="{%url 'wish:people'%}">{{ i.name }}</a></td>
+    <td></td>
+    <td></td>
+    <td>Action</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="{% url 'wish:add' %}">Add Item</a>
+  </body>
+</html>

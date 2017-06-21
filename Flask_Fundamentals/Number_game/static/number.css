@@ -1,0 +1,50 @@
+body{
+  background-color:white;
+}
+
+#container{
+  height:100%;
+  width:100%;
+}
+
+h1{
+  text-align:center;
+}
+
+h3{
+  text-align: center;
+}
+
+input{
+  margin-left: 50%;
+  margin-top: 30px;
+}
+
+#square{
+  height:350px;
+  width: 350px;
+  background-color: red;
+  border-width:10px;
+  border-style: solid;
+  border-color: black;
+  margin-left: 35%;
+}
+
+/*#green{
+  height:350px;
+  width: 350px;
+  background-color: green;
+  border-width:10px;
+  border-style: solid;
+  border-color: black;
+  margin-left: 35%;
+  position:absolute;
+}*/
+
+p{
+  text-align: center;
+  color:white;
+  font-size: 35px;
+  padding-top: 90px;
+  font-family: "Comic Sans MS", sans-serif;
+}

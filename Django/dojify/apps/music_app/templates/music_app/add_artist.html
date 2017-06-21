@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Artist</title>
+  </head>
+  <body>
+    <a href="{% url 'playlist:home' %}">Back to Home</a>
+    <h1>Add Artist and Album</h1><hr>
+    <form action= {% url 'music:added_artist' %} method="POST">
+        {% csrf_token %}
+    <label for="artist">Artist:</label>
+    <input type="text" name="artist" value="">
+    <label for="album">Album:</label>
+    <input type="text" name="album" value="">
+    <input type="submit" name="add" value="Add">
+    <hr>
+    </form>
+    {% for m in messages %}
+      {{ m }}<br>
+    {% endfor %}
+  <table width="500" height="350" style="border: 1px solid black">
+    <tr>
+      <th style="border: 2px solid black">Artist Name</th>
+      <th style="border: 2px solid black">Album</th>
+    </tr>
+    {% for artist in artists %}
+    <tr>
+      <td style="border: 1px solid black">{{artist.name}}</td>
+      <td>
+        <table width="290" style="border: 1px solid black">
+          {% for album in artist.albums.all %}
+          <tr>
+            <td style="border: 2px solid black">
+              {{album.title}}
+            </td>
+            <td>
+              {{album.id}}
+              <br><a href="{% url 'music:added_song' album_id=album.id %}">Add Song</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  </body>
+</html>

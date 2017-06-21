@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <h3>Please Fill Out</h3>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form action="/authorize" method="POST">
+          Email: <input type='text' name='server_email'>
+          <br>
+          First Name: <input type='text' name='server_fname'>
+          <br>
+          Last Name: <input type='text' name='server_lname'>
+          <br>
+          Password: <input type='password' name='server_password'>
+          <br>
+          Retype Password: <input type='password' name='server_rpassword'>
+          <br>
+          <input type="submit" name="" value="Submit">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+  </head>
+  <body>
+    <input type="text" name="total_gold" value="{{session.total_gold}}">
+    <div id="locations">
+      <form action="/process_money" method="POST">
+      <h3 class="where">Farm</h3>
+        <p>Earns 10-20 golds</p>
+        <input type="hidden" name="building" value="farm"/>
+        <input type="submit" value="Find Gold!"/>
+      </form>
+      <form action="/process_money" method="POST">
+      <h3 class="where">Cave</h3>
+        <p>Earns 5-10 golds)</p>
+        <input type="hidden" name="building" value="cave"/>
+        <input type="submit" value="Find Gold!"/>
+      </form>
+      <form action="/process_money" method="POST">
+      <h3 class="where">House</h3>
+        <p>Earns 2-5 golds)</p>
+        <input type="hidden" name="building" value="house"/>
+        <input type="submit" value="Find Gold!"/>
+      </form>
+      <form action="/process_money" method="POST">
+      <h3 class="where">Casino</h3>
+        <p>Earns or Takes 0-50 golds)</p>
+        <input type="hidden" name="building" value="casino"/>
+        <input type="submit" value="Find Gold!"/>
+      </form>
+      <form action="/activity_log" method="POST">
+      <p>Activity:</p>
+      <textarea rows="11" cols="80">
+        {% for history in session.history %}
+          {{history}}
+        {% endfor %}
+      </textarea>
+      </form>
+      <form action="/reset", method="POST">
+        <input type="submit" name="Reset" value="Reset">
+      </form>
+    </div>
+  </body>
+</html>

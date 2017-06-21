@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 30px;
+  font-family: "Arial", sans-serif;
+  color: black;
+  background-color: #F1F1F1;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+button{
+  background-color: orange;
+}
+
+img{
+  margin: 30px;
+  margin-left: 35%;
+}
+
+#shark{
+  margin-left: 760px;
+  margin-bottom: -10px;
+  margin-top: -40px;
+}

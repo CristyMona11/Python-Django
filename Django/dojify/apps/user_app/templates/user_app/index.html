@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Music</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action= {% url 'user:login' %} method="POST">
+      {% csrf_token %}
+      <label for="html_email">Email:</label><br>
+      <input type="text" name="html_email" value=""><br>
+      <label for="html_password">Password:</label><br>
+      <input type="password" name="html_password" value=""><br><br>
+      <input type="submit" name="" value="Login">
+    </form>
+    <br>
+    <hr>
+    <br>
+    <h1>Registration</h1>
+    {% for m in messages %}
+      {{ m }}<br>
+    {% endfor %}
+    <form action= {% url 'user:register' %} method="POST">
+        {% csrf_token %}
+      <label for="html_first_name">First Name:</label><br>
+      <input type="text" name="html_first_name" value=""><br>
+      <label for="html_last_name">Last Name:</label><br>
+      <input type="text" name="html_last_name" value=""><br>
+      <label for="html_email">Email:</label><br>
+      <input type="text" name="html_email" value=""><br>
+      <label for="html_password">Password:</label><br>
+      <input type="password" name="html_password" value=""><br><br>
+      <label for="html_confirm">Confirm Password:</label><br>
+      <input type="password" name="html_confirm" value=""><br><br>
+      <input type="submit" name="" value="Register">
+    </form>
+  </body>
+</html>

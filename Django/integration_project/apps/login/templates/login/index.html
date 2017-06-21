@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Reg</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <h3>Registration:</h3>
+    <form action="{% url 'login:authorize' %}" method="POST">
+      {% csrf_token %}
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" value="">
+      <br><br>
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" value="">
+      <br><br>
+      <label for="email">Email:</label>
+      <input type="text" name="email" value="">
+      <br><br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" value="">
+      <br><br>
+      <label for="confirm">Confirm Password:</label>
+      <input type="password" name="confirm" value="">
+      <br><br>
+      <label for="Register"></label>
+      <input type="submit" name="register" value="Register">
+    </form>
+    <h3>Login:</h3>
+    <form action="{% url 'courses:index' %}" method="POST">
+      {% csrf_token %}
+      Email:<input type="text" name="email" value="">
+      <br><br>
+      <label for="password"></label>
+      Password:<input type="password" name="password" value="">
+      <br><br>
+      <a href="{% url 'courses:index' %}"><button>Login</button></a><br><br>
+    </form>
+    <a href="{% url 'login:index' %}"><button>Logout</button></a>
+  </body>
+</html>

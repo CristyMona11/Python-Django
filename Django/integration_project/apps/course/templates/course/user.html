@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A Web Page</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+    <br><br><br><br><br>
+    <form action="{% url 'courses:added' %}" method="POST">
+    {% csrf_token %}
+    <select name="user">
+    {% for student in students%}
+      <option value="{{student.id}}">{{ student.first_name}}</option>
+    {% endfor %}
+    </select>
+    <select name="courses">
+    {% for course in courses%}
+      <option value="{{course.id}}">{{ course.course_name }}</option>
+    {% endfor %}
+    </select>
+    <input type="submit" name="Add" value="Add User to Course">
+    {% csrf_token %}
+  </form>
+    <br><br>
+    <table style="width:60%">
+      <tr>
+        <th>Course</th>
+        <th>Title</th>
+        <th>Number of Users</th>
+      </tr>
+      {% for course in courses %}
+      <tr>
+        <td>{{ course.id }}</td>
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.student_count}}</td>
+      {% endfor %}
+    </table>
+    <br><br><br>
+      <a href="{% url 'courses:keep' %}">Return To Course Page</a><br><br>
+      <a href="{% url 'login:index' %}">Logout</a>
+  </body>
+</html>

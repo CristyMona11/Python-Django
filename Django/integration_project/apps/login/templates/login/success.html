@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Reg|Success</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <h2> Success!</h2>
+
+  <a href="{% url 'login:index' %}"><button>Go back to Login</button></a>
+
+  </body>
+</html>

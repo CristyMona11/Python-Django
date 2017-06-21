@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey Index</title>
+  </head>
+  <body>
+  <h1>Dojo Survey</h1>
+  <h3>Please Fill Out</h3>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+    <form action='/authorize' method='POST'>
+        Name: <input type='text' name='server_name'>
+        <br>
+        <select name="location">
+            <option value="Location">Location</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Hong Kong">Hong Kong</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Tamarindo">Tamarindo</option>
+            <option value="Bangkok">Bangkok</option>
+            <option value="Kauai">Kauai</option>
+        </select>
+        <br>
+        <select name="fave_language">
+            <option value="start">Favorite language</option>
+            <option value="Javascript">Javascript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Python">Python</option>
+            <option value="MEAN">MEAN</option>
+        </select>
+        <br>
+        <p>Comment (optional):</p>
+        <textarea name="description"></textarea>
+        <br>
+        <a href="/survey_accepted"><button>Submit</button></a>
+    </form>
+  </body>
+</html>
